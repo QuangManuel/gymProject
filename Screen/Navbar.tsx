@@ -1,4 +1,5 @@
-import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
 import {Dimensions, KeyboardAvoidingView} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
@@ -35,7 +36,28 @@ const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 function Navbar({navigation}: any): JSX.Element {
-  const [text, onChangeText] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [email, setEmail] = React.useState('');
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const userDataString = await AsyncStorage.getItem('userData');
+        if (userDataString) {
+          const userData = JSON.parse(userDataString);
+          setUsername(userData.username);
+          setEmail(userData.email);
+          console.log(userData)
+        }
+      } catch (error) {}
+    };
+
+    fetchInfo();
+  }, []);
+
+  const logout=() => {
+    navigation.navigate('OnBoarding');
+  }
   
 
   return (
@@ -56,9 +78,9 @@ function Navbar({navigation}: any): JSX.Element {
             paddingHorizontal: 13,
           }}>
           <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
-            Quang
+            {username}
           </Text>
-          <Text style={{color: '#535763'}}>dangquang@gmail.com</Text>
+          <Text style={{color: '#535763'}}>{email}</Text>
         </View>
 
         <TouchableOpacity
@@ -186,7 +208,7 @@ function Navbar({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
         onPress={() => {
-          navigation.navigate('OnBoarding');
+          logout();
         }}
         style={{marginTop: 10, flexDirection: 'row',}}>
         <Image 

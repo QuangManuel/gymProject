@@ -129,7 +129,7 @@ function Main({navigation}: any): JSX.Element {
         <TouchableOpacity
           onPress={() => {
             if (otp.trim() !== '' && /^[0-9]{6}$/.test(otp)) {
-              navigation.navigate('Home');
+              navigation.navigate('MainHome');
             } else {
               Alert.alert('Warning!','Vui lòng nhập mã OTP')
             }
