@@ -24,11 +24,18 @@ function Home({navigation}: any): JSX.Element {
     <SafeAreaView style={styles.container}>
       {/* PHẦN HEADER  */}
       <View style={styles.header}>
-      <TouchableOpacity
+        <TouchableOpacity
           onPress={() => {
             navigation.navigate('OnBoarding');
           }}>
           <Text>Qua trang màn hình chờ</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('MainHome');
+          }}>
+          <Text>Qua trang chủ</Text>
         </TouchableOpacity>
       </View>
 
@@ -60,17 +67,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink',
   },
   header: {
-    flex:1, 
-    backgroundColor:'green'
+    flex: 1,
+    backgroundColor: 'green',
   },
 
   body: {
-    flex:8,
-    backgroundColor:'yellow'
+    flex: 8,
+    backgroundColor: 'yellow',
   },
 
   footer: {
-    flex:1
+    flex: 1,
   },
   btnLogin: {
     borderWidth: 1,

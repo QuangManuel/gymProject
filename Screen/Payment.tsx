@@ -163,7 +163,7 @@ function Payment({navigation}: any): JSX.Element {
               <View style={styles.dateInput}>
                 <TextInput
                   style={{width: '100%'}}
-                  placeholder="Date Expires"
+                  placeholder="CVV"
                   value={cardNumber}
                   keyboardType="name-phone-pad"
                 />
