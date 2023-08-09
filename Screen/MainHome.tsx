@@ -59,7 +59,10 @@ function MainHome({navigation}: any): JSX.Element {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Navbar');
+              }}>
               <Image
                 style={{
                   width: 45,
@@ -345,7 +348,6 @@ function MainHome({navigation}: any): JSX.Element {
             <ImageBackground
               style={{
                 height: 79,
-                backgroundColor: 'red',
                 borderRadius: 20,
                 marginTop: 20,
               }}
@@ -360,9 +362,12 @@ function MainHome({navigation}: any): JSX.Element {
                     marginRight: 10,
                   }}
                   source={require('../images/standard_icon.png')}></Image>
-                <Text style={{color: '#E84479', fontWeight: 'bold', fontSize: 20}}>
+                <Text
+                  style={{color: '#E84479', fontWeight: 'bold', fontSize: 20}}>
                   GIẢM GIÁ ĐẾN 20% {'\n'}
-                  <Text style={{fontSize: 13, color: 'white'}}>TOÀN BỘ CHƯƠNG TRÌNH</Text>
+                  <Text style={{fontSize: 13, color: 'white'}}>
+                    TOÀN BỘ CHƯƠNG TRÌNH
+                  </Text>
                 </Text>
               </View>
             </ImageBackground>
@@ -371,27 +376,28 @@ function MainHome({navigation}: any): JSX.Element {
       </KeyboardAvoidingView>
 
       <View style={styles.bottom}>
-        <TouchableOpacity style={styles.bottomTabs}
-        onPress={() => {
-          navigation.navigate('MainHome');
-        }}>
-          <Image 
-          style ={{width: 25, height: 25,}}
-          source={require('../images/home.png')}
-          />
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.bottomTabs}>
-          <Image 
-          style ={{width: 21, height: 27,}}
-          source={require('../images/location.png')}
+        <TouchableOpacity
+          style={styles.bottomTabs}
+          onPress={() => {
+            navigation.navigate('MainHome');
+          }}>
+          <Image
+            style={{width: 25, height: 25}}
+            source={require('../images/home.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.bottomTabs}>
-          <Image 
-          style ={{width: 25, height: 25,}}
-          source={require('../images/kinhlup.png')}
+          <Image
+            style={{width: 21, height: 27}}
+            source={require('../images/location.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.bottomTabs}>
+          <Image
+            style={{width: 25, height: 25}}
+            source={require('../images/kinhlup.png')}
           />
         </TouchableOpacity>
       </View>
@@ -406,6 +412,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
+    paddingHorizontal: 20,
     textAlign: 'right',
     flex: 1,
     alignItems: 'flex-end',
@@ -413,7 +420,7 @@ const styles = StyleSheet.create({
 
   topBar: {
     flexDirection: 'row',
-    padding: 10,
+    paddingVertical: 15,
     width: '100%',
     flex: 1,
   },
@@ -494,9 +501,8 @@ const styles = StyleSheet.create({
   bottomTabs: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-
 });
 
 const shadow = {
