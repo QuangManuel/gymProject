@@ -1,5 +1,6 @@
-import React from 'react';
-import {Dimensions} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
+import {Alert, Dimensions} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
   SafeAreaView,
@@ -27,9 +28,23 @@ import {
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
-function GuestPhoneVerify({navigation}: any): JSX.Element {
-  const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState('');
+function PhoneVerify({navigation}: any): JSX.Element {
+  const [phonenumber, setPhone] = React.useState('');
+  const [otp, setOtp] = React.useState('');
+
+  useEffect(() => {
+    const fetchPhoneNumber = async () => {
+      try {
+        const userDataString = await AsyncStorage.getItem('userData');
+        if (userDataString) {
+          const userData = JSON.parse(userDataString);
+          setPhone(userData.phonenumber);
+        }
+      } catch (error) {}
+    };
+
+    fetchPhoneNumber();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -70,7 +85,7 @@ function GuestPhoneVerify({navigation}: any): JSX.Element {
               textAlign: 'center',
               marginBottom: 30,
             }}>
-            OTP gồm 6 chữ số đã được gửi đến số điện thoại 0123456789
+            OTP gồm 6 chữ số đã được gửi đến số điện thoại {phonenumber}
           </Text>
         </View>
 
@@ -87,9 +102,9 @@ function GuestPhoneVerify({navigation}: any): JSX.Element {
           />
           <TextInput
             style={{width: '100%'}}
-            onChangeText={onChangeText}
+            onChangeText={setOtp}
             placeholder="OTP"
-            value={text}
+            value={otp}
             keyboardType="name-phone-pad"
           />
         </View>
@@ -116,7 +131,11 @@ function GuestPhoneVerify({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('PlanSubcription');
+            if (otp.trim() !== '' && /^[0-9]{6}$/.test(otp)) {
+              navigation.navigate('PlanSubcription');
+            } else {
+              Alert.alert('Warning!','Vui lòng nhập mã OTP')
+            }
           }}
           style={{
             backgroundColor: '#E84479',
@@ -188,4 +207,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GuestPhoneVerify;
+export default PhoneVerify;
