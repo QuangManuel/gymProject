@@ -36,10 +36,10 @@ import MainHome from './MainHome';
 import Navbar from './Navbar';
 import PersonalInfo from './PersonalInfo';
 import ChangePassword from './ChangePassword';
-import TraningHistory from './TrainingHistory';
 import TrainingHistory from './TrainingHistory';
 import MainHomeGuest from './MainHomeGuest';
 import Navbar_Guest from './Navbar_Guest';
+import SubManage from './SubManage';
 
 const Stack = createNativeStackNavigator();
 
@@ -80,6 +80,9 @@ function navigate(): JSX.Element {
         <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ headerShown: true }} />
         
         <Stack.Screen name="TrainingHistory" component={TrainingHistory} options={{ headerShown: true }} />
+
+        <Stack.Screen name="SubManage" component={SubManage} options={{ headerShown: true }} />
+
 
       </Stack.Navigator>
     </NavigationContainer>

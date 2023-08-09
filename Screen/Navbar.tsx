@@ -122,7 +122,7 @@ function Navbar({navigation}: any): JSX.Element {
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('PersonalInfo');
+            navigation.navigate('SubManage');
           }}
           style={{
             height: 50,
