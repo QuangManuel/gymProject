@@ -115,7 +115,7 @@ function Main({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('GuestPhoneVerify');
+            navigation.navigate('MainHomeGuest');
           }}
           style={{
             backgroundColor: '#E84479',

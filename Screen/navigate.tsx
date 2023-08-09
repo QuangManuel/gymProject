@@ -38,6 +38,8 @@ import PersonalInfo from './PersonalInfo';
 import ChangePassword from './ChangePassword';
 import TraningHistory from './TrainingHistory';
 import TrainingHistory from './TrainingHistory';
+import MainHomeGuest from './MainHomeGuest';
+import Navbar_Guest from './Navbar_Guest';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,7 +69,11 @@ function navigate(): JSX.Element {
 
         <Stack.Screen name="MainHome" component={MainHome} options={{ headerShown: false }} />
 
+        <Stack.Screen name="MainHomeGuest" component={MainHomeGuest} options={{ headerShown: false }} />
+
         <Stack.Screen name="Navbar" component={Navbar} options={{ headerShown: false }} />
+        
+        <Stack.Screen name="Navbar_Guest" component={Navbar_Guest} options={{ headerShown: false }} />
 
         <Stack.Screen name="PersonalInfo" component={PersonalInfo} options={{ headerShown: true }} />
 
