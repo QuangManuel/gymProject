@@ -1,5 +1,7 @@
 import React from 'react';
 import {Dimensions} from 'react-native';
+import { RNCamera } from 'react-native-camera';
+import { useCamera } from 'react-native-camera-hooks';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,6 +31,12 @@ const {width} = Dimensions.get('window');
 function CCCD({navigation}: any): JSX.Element {
   const [text, onChangeText] = React.useState('');
   const [number, onChangeNumber] = React.useState('');
+  const [{ cameraRef }, { takePicture }] = useCamera(null);
+  const captureHandle = async () => {
+    try {
+      const data = await takePicture();
+    } catch (error) {}
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -66,27 +74,35 @@ function CCCD({navigation}: any): JSX.Element {
         </View>
 
         <View style={styles.input}>
-          <View style={{
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <Image
+          <RNCamera
+            ref={cameraRef}
+            type={RNCamera.Constants.Type.front}
+            style={styles.preview}
+          >
+            <TouchableOpacity
+              onPress={() => captureHandle()}
               style={{
-                width: '50%',
-                height: '60%',
-              }}
-              source={require('../images/id-card.png')}
-            />
-          </View>
-          
-          <Text style={{
-              width: '100%',
-              textAlign: 'center',
-              fontWeight: '600',
-              fontSize: 14,
-            }}> CCCD/CMND
-          </Text>
+                backgroundColor: '#E84479',
+                marginTop: 10,
+                paddingHorizontal: 30,
+                borderRadius: 100,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+              }}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'UTM-Bebas',
+                  textAlign: 'center',
+                  color: 'white',
+                  fontWeight: 'bold',
+                }}>
+                Chụp
+              </Text>
+            </TouchableOpacity>
+          </RNCamera>
         </View>
 
       </View>
@@ -170,13 +186,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A8A8A9',
     paddingHorizontal: 10,
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
     borderRadius: 8,
     backgroundColor: '#F3F3F3',
     color: '#676767',
     flexDirection: 'column',
     justifyContent: 'center',
+  },
+
+  preview: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
 });
 

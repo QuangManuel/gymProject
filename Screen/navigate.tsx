@@ -33,6 +33,11 @@ import Payment from './Payment';
 import PaymentSuccess from './MainHome';
 import Main from './GuestPhoneVerify';
 import MainHome from './MainHome';
+import Navbar from './Navbar';
+import PersonalInfo from './PersonalInfo';
+import ChangePassword from './ChangePassword';
+import TraningHistory from './TrainingHistory';
+import TrainingHistory from './TrainingHistory';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +66,15 @@ function navigate(): JSX.Element {
         <Stack.Screen name="Payment" component={Payment} options={{ headerShown: true }} />
 
         <Stack.Screen name="MainHome" component={MainHome} options={{ headerShown: false }} />
+
+        <Stack.Screen name="Navbar" component={Navbar} options={{ headerShown: false }} />
+
+        <Stack.Screen name="PersonalInfo" component={PersonalInfo} options={{ headerShown: true }} />
+
+        <Stack.Screen name="ChangePassword" component={ChangePassword} options={{ headerShown: true }} />
+        
+        <Stack.Screen name="TrainingHistory" component={TrainingHistory} options={{ headerShown: true }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
