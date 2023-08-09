@@ -1,5 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
-import {Dimensions, KeyboardAvoidingView} from 'react-native';
+import {Alert, Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,8 +30,8 @@ const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 function LoginGuest({navigation}: any): JSX.Element {
-  const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState('');
+  const [phonenumber, setPhone] = React.useState('');
+  const phoneNumberRegex = /^[0-9]{10}$/;
 
   return (
     <KeyboardAvoidingView
@@ -82,54 +83,23 @@ function LoginGuest({navigation}: any): JSX.Element {
               />
               <TextInput
                 style={{width: '100%'}}
-                onChangeText={onChangeText}
+                onChangeText={setPhone}
                 placeholder="Phone Number"
-                value={text}
+                value={phonenumber}
                 keyboardType="name-phone-pad"
               />
             </View>
-            <View style={styles.input}>
-              <Image
-                style={{
-                  marginRight: 5,
-                  marginTop: 13,
-                  width: 16,
-                  height: '42%',
-                  alignSelf: 'flex-start',
-                }}
-                source={require('../images/password.png')}
-              />
-              <TextInput
-                style={{width: '100%'}}
-                onChangeText={onChangeNumber}
-                value={number}
-                placeholder="Password"
-                secureTextEntry
-              />
-            </View>
-            <Text
-              style={{
-                textAlign: 'right',
-                marginRight: 7,
-                width: width / 1.1,
-              }}>
-              <TouchableOpacity>
-                <Text
-                  style={{
-                    fontWeight: '400',
-                    fontSize: 14,
-                    color: '#E84479',
-                  }}>
-                  Quên mật khẩu?
-                </Text>
-              </TouchableOpacity>
-            </Text>
           </View>
 
           <View style={styles.bottom}>
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('GuestPhoneVerify');
+              onPress={async () => {
+                if (phonenumber.trim() !== '' && phoneNumberRegex.test(phonenumber)) {
+                  await AsyncStorage.setItem('guestPhoneNumber', phonenumber);
+                  navigation.navigate('GuestPhoneVerify', { phoneNumber: phonenumber });
+                } else {
+                  Alert.alert('Warning!','Vui lòng nhập số điện thoại')
+                }
               }}
               style={{
                 backgroundColor: '#E84479',
