@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, KeyboardAvoidingView} from 'react-native';
+import {Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';

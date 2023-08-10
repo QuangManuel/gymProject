@@ -1,5 +1,6 @@
-import React from 'react';
-import {Dimensions, KeyboardAvoidingView} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
+import {Alert, Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -35,12 +36,54 @@ const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 function ChangePassword({navigation}: any): JSX.Element {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [phonenumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
-  const [newpassword, setNewPassword] = useState('');
-  const [confirmpassword, confirmPassword] = useState('');
+  const [password, setPassword] = React.useState('');
+  const [newPassword, setNewPassword] = React.useState('');
+  const [confirmPassword, setConfirmPassword] = React.useState('');
+  const [parsedUserData, setParsedUserData] = React.useState(null);
+
+  React.useEffect(() => {
+    // Lấy thông tin tài khoản từ AsyncStorage
+    AsyncStorage.getItem('userData')
+      .then(userData => {
+        if (userData) {
+          const parsedUserData = JSON.parse(userData);
+          setParsedUserData(parsedUserData);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching user data: ', error);
+      });
+  }, []);
+
+  const handleChangePassword = async () => {
+    if (!parsedUserData) {
+      Alert.alert('Error', 'User data not available.');
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      Alert.alert('Error', "New password and confirm password don't match.");
+      return;
+    }
+
+    try {
+      const userDataString = await AsyncStorage.getItem('userData');
+      if (userDataString) {
+        const userData = JSON.parse(userDataString);
+        userData.pass = newPassword;
+        userData.passConfirm = newPassword;
+        await AsyncStorage.setItem('userData', JSON.stringify(userData));
+        setPassword(newPassword);
+        Alert.alert('Success', 'Password changed successfully.');
+        navigation.navigate('PersonalInfo');
+      } else if (parsedUserData.pass !== password) {
+        Alert.alert('Error', 'Current password is incorrect.');
+        return;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -103,7 +146,7 @@ function ChangePassword({navigation}: any): JSX.Element {
                     style={{flex: 8}}
                     onChangeText={setNewPassword}
                     secureTextEntry
-                    value={newpassword}
+                    value={newPassword}
                   />
                 </View>
               </View>
@@ -119,9 +162,9 @@ function ChangePassword({navigation}: any): JSX.Element {
                 <View style={{flex: 1, flexDirection: 'row'}}>
                   <TextInput
                     style={{flex: 8}}
-                    onChangeText={confirmPassword}
+                    onChangeText={setConfirmPassword}
                     secureTextEntry
-                    value={confirmpassword}
+                    value={confirmPassword}
                   />
                 </View>
               </View>
@@ -130,9 +173,7 @@ function ChangePassword({navigation}: any): JSX.Element {
 
           <View style={styles.bottom}>
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('PersonalInfo');
-              }}
+              onPress={handleChangePassword}
               style={{
                 backgroundColor: '#E84479',
                 marginTop: 10,

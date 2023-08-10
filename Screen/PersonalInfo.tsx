@@ -1,5 +1,6 @@
-import React from 'react';
-import {Dimensions, KeyboardAvoidingView} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
+import {Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -35,10 +36,29 @@ const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 function PersonalInfo({navigation}: any): JSX.Element {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [phonenumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = React.useState('');
+  const [pass, setPass] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [phonenumber, setPhone] = React.useState('');
+  const [newUsername, setNewUsername] = React.useState('');
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      try {
+        const userDataString = await AsyncStorage.getItem('userData');
+        if (userDataString) {
+          const userData = JSON.parse(userDataString);
+          setUsername(userData.username);
+          setPass(userData.pass);
+          setEmail(userData.email);
+          setPhone(userData.phonenumber);
+          console.log(userData)
+        }
+      } catch (error) {}
+    };
+
+    fetchInfo();
+  }, []);
 
   return (
     <KeyboardAvoidingView
@@ -79,9 +99,9 @@ function PersonalInfo({navigation}: any): JSX.Element {
               <View style={styles.input}>
                 <TextInput
                   style={{width: '100%'}}
-                  onChangeText={setUsername}
-                  placeholder="Quang"
-                  value={username}
+                  placeholder={username}
+                  onChangeText={setNewUsername}
+                  editable={true}
                 />
               </View>
             </View>
@@ -96,10 +116,9 @@ function PersonalInfo({navigation}: any): JSX.Element {
                 <View style={{flex: 1, flexDirection: 'row'}}>
                   <TextInput
                     style={{flex: 8}}
-                    onChangeText={setPassword}
+                    value={pass}
                     secureTextEntry
-                    placeholder="******"
-                    value={password}
+                    editable={false}
                   />
 
                   <TouchableOpacity
@@ -127,10 +146,8 @@ function PersonalInfo({navigation}: any): JSX.Element {
               <View style={styles.input}>
                 <TextInput
                   style={{width: '100%'}}
-                  onChangeText={setEmail}
-                  placeholder="dangquang@gmail.com"
-                  editable={false}
                   value={email}
+                  editable={false}
                 />
               </View>
             </View>
@@ -144,10 +161,8 @@ function PersonalInfo({navigation}: any): JSX.Element {
               <View style={styles.input}>
                 <TextInput
                   style={{width: '100%'}}
-                  onChangeText={setPhoneNumber}
-                  placeholder="0919447744"
-                  editable={false}
                   value={phonenumber}
+                  editable={false}
                 />
               </View>
             </View>
@@ -156,7 +171,23 @@ function PersonalInfo({navigation}: any): JSX.Element {
           <View style={styles.bottom}>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Home');
+                const updateInfo = async () => {
+                  try {
+                    const userDataString = await AsyncStorage.getItem('userData');
+                    if (userDataString) {
+                      const userData = JSON.parse(userDataString);
+                      userData.username = newUsername; // Update the username
+                      await AsyncStorage.setItem('userData', JSON.stringify(userData));
+                      setUsername(newUsername); // Update the state with the new username
+                      setNewUsername(''); // Clear the new username input
+                      navigation.navigate('MainHome');
+                    }
+                  } catch (error) {
+                    console.error(error);
+                  }
+                };
+          
+                updateInfo();
               }}
               style={{
                 backgroundColor: '#E84479',

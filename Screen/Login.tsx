@@ -1,5 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
-import {Dimensions, KeyboardAvoidingView} from 'react-native';
+import {Alert, Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,8 +30,60 @@ const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
 function Login({navigation}: any): JSX.Element {
-  const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState('');
+  const [inputs, setInputs] = React.useState({
+    username: "",
+    email: "",
+    pass: "",
+  });
+
+  const [errors, setErrors] = React.useState({});
+
+  const validate = async () => {
+    let isValid = true;
+
+    if (!inputs.email) {
+      handleError("Vui lòng nhập Email", "email");
+      isValid = false;
+    } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
+      handleError("Vui lòng nhập Email", "email");
+      isValid = false;
+    }
+    if (!inputs.pass) {
+      handleError("Vui lòng nhập Password", "pass");
+      isValid = false;
+    } else if (inputs.pass.length < 8) {
+      handleError("Password phải có tối thiểu 8 ký tự", "pass");
+      isValid = false;
+    }
+
+    if (isValid) login();
+  };
+
+  const login = () => {
+    setTimeout( async () => {
+      try {
+        let userData = await AsyncStorage.getItem("userData")
+        
+        if (userData) {
+          userData = JSON.parse(userData);
+
+          if (inputs.email == userData.email && inputs.pass == userData.pass) {
+            navigation.navigate("MainHome");
+          } else {
+            Alert.alert('Warning!','Email hoặc mật khẩu không đúng')
+          }
+        }
+      } catch (error) {}
+    }, 1000);
+  }
+
+  const handleOnChange = (text: string, input: string) => {
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
+  };
+
+  const handleError = (text: string, input: string) => {
+    setErrors((prevState) => ({ ...prevState, [input]: text }));
+  };
 
   return (
     <KeyboardAvoidingView
@@ -83,11 +136,14 @@ function Login({navigation}: any): JSX.Element {
           />
           <TextInput
             style={{width: '100%'}}
-            onChangeText={onChangeText}
-            placeholder="Username or Email"
-            value={text}
+            onChangeText={ (text) => handleOnChange(text, "email") }
+            placeholder="Email"
+            onFocus={() => handleError(null, "email")}
+            error={errors.email}
           />
         </View>
+        {errors.email && <Text style={styles.textError}>{errors.email}</Text>}
+
         <View style={styles.input}>
         <Image
             style={{
@@ -101,12 +157,15 @@ function Login({navigation}: any): JSX.Element {
           />
           <TextInput
             style={{width: '100%'}}
-            onChangeText={onChangeNumber}
-            value={number}
             placeholder="Password"
+            onChangeText={ (text) => handleOnChange(text, "pass") }
             secureTextEntry
+            onFocus={() => handleError(null, "pass")}
+            error={errors.pass}
           />
         </View>
+        {errors.pass && <Text style={styles.textError}>{errors.pass}</Text>}
+
         <Text
           style={{
             textAlign: 'right',
@@ -129,7 +188,7 @@ function Login({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Home');
+            validate();
           }}
           style={{
             backgroundColor: '#E84479',
@@ -178,7 +237,6 @@ function Login({navigation}: any): JSX.Element {
     </SafeAreaView>
       </ScrollView>
     </KeyboardAvoidingView>
-
   );
 }
 
@@ -225,6 +283,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     color: '#676767',
     flexDirection: 'row',
+  },
+
+  textError: {
+    paddingHorizontal: 10,
+    width: width / 1.1,
+    flexDirection: 'row',
+    color: "red",
+    fontSize: 14,
   },
 });
 

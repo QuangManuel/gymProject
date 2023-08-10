@@ -84,6 +84,7 @@ function navigate(): JSX.Element {
         <Stack.Screen name="SubManage" component={SubManage} options={{ headerShown: true }} />
 
 
+
       </Stack.Navigator>
     </NavigationContainer>
   );
