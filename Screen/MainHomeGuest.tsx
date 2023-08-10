@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
+import {Dimensions, KeyboardAvoidingView} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -33,7 +33,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
-function MainHome({navigation}: any): JSX.Element {
+function MainHomeGuest({navigation}: any): JSX.Element {
   const [text, onChangeText] = React.useState('');
 
   return (
@@ -61,7 +61,7 @@ function MainHome({navigation}: any): JSX.Element {
 
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Navbar');
+                navigation.navigate('Navbar_Guest');
               }}>
               <Image
                 style={{
@@ -69,8 +69,9 @@ function MainHome({navigation}: any): JSX.Element {
                   height: 45,
                   borderRadius: 100,
                   justifyContent: 'center',
+                  backgroundColor: '#C4C4C4'
                 }}
-                source={require('../images/avatar.jpg')}
+                source={require('../images/gymaster_logo.png')}
               />
             </TouchableOpacity>
           </View>
@@ -516,4 +517,4 @@ const shadow = {
   },
 };
 
-export default MainHome;
+export default MainHomeGuest;

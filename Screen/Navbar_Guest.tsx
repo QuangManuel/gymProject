@@ -1,5 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useEffect } from 'react';
+import React from 'react';
 import {Dimensions, KeyboardAvoidingView} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {useState} from 'react';
@@ -35,29 +34,8 @@ import LinearGradient from 'react-native-linear-gradient';
 const {height} = Dimensions.get('window');
 const {width} = Dimensions.get('window');
 
-function Navbar({navigation}: any): JSX.Element {
-  const [username, setUsername] = React.useState('');
-  const [email, setEmail] = React.useState('');
-
-  useEffect(() => {
-    const fetchInfo = async () => {
-      try {
-        const userDataString = await AsyncStorage.getItem('userData');
-        if (userDataString) {
-          const userData = JSON.parse(userDataString);
-          setUsername(userData.username);
-          setEmail(userData.email);
-          console.log(userData)
-        }
-      } catch (error) {}
-    };
-
-    fetchInfo();
-  }, []);
-
-  const logout=() => {
-    navigation.navigate('OnBoarding');
-  }
+function Navbar_Guest({navigation}: any): JSX.Element {
+  const [text, onChangeText] = React.useState('');
   
 
   return (
@@ -65,8 +43,8 @@ function Navbar({navigation}: any): JSX.Element {
       <View style={styles.header}>
         <View style={{flex: 1, justifyContent: 'center'}}>
           <Image
-            style={{width: 50, height: 50, borderRadius: 100}}
-            source={require('../images/avatar.jpg')}
+            style={{width: 50, height: 50, borderRadius: 100, backgroundColor: '#C4C4C4'}}
+            source={require('../images/gymaster_logo.png')}
           />
         </View>
 
@@ -78,14 +56,13 @@ function Navbar({navigation}: any): JSX.Element {
             paddingHorizontal: 13,
           }}>
           <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
-            {username}
+            0919447744
           </Text>
-          <Text style={{color: '#535763'}}>{email}</Text>
         </View>
 
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('MainHome');
+            navigation.navigate('MainHomeGuest');
           }}
           style={{
             flex: 1,
@@ -100,68 +77,6 @@ function Navbar({navigation}: any): JSX.Element {
       </View>
 
       <View style={styles.body}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('PersonalInfo');
-          }}
-          style={{
-            height: 50,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <View style={{flex: 1, alignItems: 'center'}}>
-            <Image
-              style={{width: 25, height: 25, justifyContent: 'center', marginRight: 5,}}
-              source={require('../images/profileinfo.png')}
-            />
-          </View>
-
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
-            Cập nhật thông tin cá nhân
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('TrainingHistory');
-          }}
-          style={{
-            height: 50,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <View style={{flex: 1, alignItems: 'center'}}>
-            <Image
-              style={{width: 25, height: 25, justifyContent: 'center', marginRight: 5,}}
-              source={require('../images/history.png')}
-            />
-          </View>
-
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
-            Lịch sử tập
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('SubManage');
-          }}
-          style={{
-            height: 50,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <View style={{flex: 1, alignItems: 'center'}}>
-            <Image
-              style={{width: 25, height: 27, justifyContent: 'center', marginRight: 5,}}
-              source={require('../images/quanly.png')}
-            />
-          </View>
-
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
-            Quản lý gói tập
-          </Text>
-        </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {
@@ -208,7 +123,7 @@ function Navbar({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
         onPress={() => {
-          logout();
+          navigation.navigate('OnBoarding');
         }}
         style={{marginTop: 10, flexDirection: 'row',}}>
         <Image 
@@ -248,4 +163,4 @@ const styles = StyleSheet.create({
     borderTopColor: '#D1D3D4',
   },
 });
-export default Navbar;
+export default Navbar_Guest;

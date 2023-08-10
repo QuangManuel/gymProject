@@ -68,7 +68,7 @@ function Login({navigation}: any): JSX.Element {
           userData = JSON.parse(userData);
 
           if (inputs.email == userData.email && inputs.pass == userData.pass) {
-            navigation.navigate("Home");
+            navigation.navigate("MainHome");
           } else {
             Alert.alert('Warning!','Email hoặc mật khẩu không đúng')
           }
