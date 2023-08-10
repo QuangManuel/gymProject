@@ -113,16 +113,6 @@ function ChangePassword({navigation}: any): JSX.Element {
                 />
               </View>
             </View>
-
-            <View
-              style={{
-                position: 'absolute',
-                marginTop: 170,
-              }}>
-              <Text style={{fontWeight: '500', fontSize: 15, color: '#000000'}}>
-                Thay đổi ảnh
-              </Text>
-            </View>
           </View>
 
           <View style={styles.body}>

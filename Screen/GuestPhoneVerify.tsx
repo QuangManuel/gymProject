@@ -128,6 +128,8 @@ function Main({navigation}: any): JSX.Element {
       <View style={styles.bottom}>
         <TouchableOpacity
           onPress={() => {
+
+            navigation.navigate('MainHomeGuest');
             if (otp.trim() !== '' && /^[0-9]{6}$/.test(otp)) {
               navigation.navigate('MainHome');
             } else {
