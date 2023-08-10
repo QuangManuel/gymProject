@@ -71,7 +71,7 @@ function PhoneVerify({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               marginBottom: 0,
             }}>
@@ -81,7 +81,7 @@ function PhoneVerify({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 17,
-              fontWeight: '400',
+              fontFamily: 'SVN-Gilroy Medium',
               textAlign: 'center',
               marginBottom: 30,
             }}>
@@ -114,15 +114,19 @@ function PhoneVerify({navigation}: any): JSX.Element {
             textAlign: 'right',
             marginRight: 7,
           }}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              Alert.alert("Mã OTP đã được gửi lại")
+            }}>
             <Text
               style={{
                 fontWeight: '500',
                 fontSize: 14,
                 color: '#676767',
+                fontFamily: 'SVN-Gilroy Medium'
               }}>
               Không nhận được OTP?&nbsp;
-              <Text style={{color: '#E84479'}}>Gửi lại mã</Text>
+              <Text style={{color: '#E84479', fontFamily: 'SVN-Gilroy Medium'}}>Gửi lại mã</Text>
             </Text>
           </TouchableOpacity>
         </Text>
@@ -144,17 +148,28 @@ function PhoneVerify({navigation}: any): JSX.Element {
             borderRadius: 100,
             height: 50,
             justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
           }}>
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Xác minh
           </Text>
+          <Image
+            style={{
+              marginLeft: 5,
+              marginTop: 15,
+              width: 20,
+              height: '42%',
+              alignSelf: 'flex-start',
+            }}
+            source={require('../images/RightArrow.png')}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

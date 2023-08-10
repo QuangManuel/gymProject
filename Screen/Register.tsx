@@ -128,7 +128,7 @@ function Register({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               marginBottom: 30,
             }}>
@@ -148,7 +148,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/username.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             onChangeText={ (text) => handleOnChange(text, "username") }
             placeholder="Username"
             onFocus={() => handleError(null, "username")}
@@ -170,7 +170,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/phonenumber.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             onChangeText={ (text) => handleOnChange(text, "phonenumber") }
             placeholder="Phone Number"
             onFocus={() => handleError(null, "phonenumber")}
@@ -191,7 +191,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/email.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             onChangeText={ (text) => handleOnChange(text, "email") }
             placeholder="Email"
             onFocus={() => handleError(null, "email")}
@@ -212,7 +212,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/cake.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             onChangeText={ (text) => handleOnChange(text, "birthday") }
             placeholder="Birthday"
             onFocus={() => handleError(null, "birthday")}
@@ -233,7 +233,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/password.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             placeholder="Password"
             onChangeText={ (text) => handleOnChange(text, "pass") }
             secureTextEntry
@@ -255,7 +255,7 @@ function Register({navigation}: any): JSX.Element {
             source={require('../images/password.png')}
           />
           <TextInput
-            style={{width: '100%'}}
+            style={{width: '100%', fontFamily:'SVN-Gilroy Medium'}}
             placeholder="Confirm Password"
             onChangeText={ (text) => handleOnChange(text, "passConfirm") }
             secureTextEntry
@@ -284,10 +284,9 @@ function Register({navigation}: any): JSX.Element {
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Tiếp theo
           </Text>

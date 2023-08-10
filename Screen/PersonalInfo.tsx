@@ -129,7 +129,7 @@ function PersonalInfo({navigation}: any): JSX.Element {
                       flex: 2,
                       alignSelf: 'center',
                     }}>
-                    <Text style={{color: '#E84479', fontWeight: '500'}}>
+                    <Text style={{color: '#E84479', fontFamily: 'SVN-Gilroy Medium'}}>
                       Thay đổi
                     </Text>
                   </TouchableOpacity>
@@ -199,11 +199,10 @@ function PersonalInfo({navigation}: any): JSX.Element {
               }}>
               <Text
                 style={{
-                  fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontSize: 25,
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
                 CẬP NHẬT
               </Text>

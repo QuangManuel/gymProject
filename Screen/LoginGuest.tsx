@@ -62,9 +62,9 @@ function LoginGuest({navigation}: any): JSX.Element {
                 style={{
                   color: 'black',
                   fontSize: 33,
-                  fontWeight: '800',
                   textAlign: 'center',
                   marginBottom: 30,
+                  fontFamily: 'UTM Bebas',
                 }}>
                 Đăng nhập Khách
               </Text>
@@ -94,11 +94,16 @@ function LoginGuest({navigation}: any): JSX.Element {
           <View style={styles.bottom}>
             <TouchableOpacity
               onPress={async () => {
-                if (phonenumber.trim() !== '' && phoneNumberRegex.test(phonenumber)) {
+                if (
+                  phonenumber.trim() !== '' &&
+                  phoneNumberRegex.test(phonenumber)
+                ) {
                   await AsyncStorage.setItem('guestPhoneNumber', phonenumber);
-                  navigation.navigate('GuestPhoneVerify', { phoneNumber: phonenumber });
+                  navigation.navigate('GuestPhoneVerify', {
+                    phoneNumber: phonenumber,
+                  });
                 } else {
-                  Alert.alert('Warning!','Vui lòng nhập số điện thoại')
+                  Alert.alert('Warning!', 'Vui lòng nhập số điện thoại');
                 }
               }}
               style={{
@@ -112,10 +117,9 @@ function LoginGuest({navigation}: any): JSX.Element {
               <Text
                 style={{
                   fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
                 Đăng nhập
               </Text>
@@ -136,10 +140,9 @@ function LoginGuest({navigation}: any): JSX.Element {
               <Text
                 style={{
                   fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
                 Đăng nhập thành viên
               </Text>

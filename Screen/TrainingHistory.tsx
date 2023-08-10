@@ -47,7 +47,7 @@ function TrainingHistory({navigation}: any): JSX.Element {
             flexDirection: 'column',
             paddingHorizontal: 13,
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
+          <Text style={{fontFamily: 'UTM Bebas', fontSize: 25, color: 'black'}}>
             LỊCH SỬ TẬP
           </Text>
         </View>
@@ -73,8 +73,8 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>GYM QUẬN 10</Text>
-              <Text style={{fontWeight: '500', color: '#333333'}}>27/07/2023 - 8:00</Text>
+              <Text style={{flex: 1, fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>GYM QUẬN 10</Text>
+              <Text style={{fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>27/07/2023 - 8:00</Text>
             </View>
 
             <View
@@ -91,7 +91,7 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 <Image 
                 style={{width: 20, height: 20, marginRight: 4}}
                 source={require('../images/username.png')}/>
-                <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>PT: ĐĂNG KHOA</Text>
+                <Text style={{flex: 1, fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>PT: ĐĂNG KHOA</Text>
               </View>
             </View>
           </View>
@@ -116,8 +116,8 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>GYM BÌNH CHÁNH</Text>
-              <Text style={{fontWeight: '500', color: '#333333'}}>26/07/2023 - 15:20</Text>
+              <Text style={{flex: 1, fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>GYM BÌNH CHÁNH</Text>
+              <Text style={{fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>26/07/2023 - 15:20</Text>
             </View>
 
             <View
@@ -134,7 +134,7 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 <Image 
                 style={{width: 20, height: 20, marginRight: 4}}
                 source={require('../images/username.png')}/>
-                <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>PT: HOÀNG PHÚC</Text>
+                <Text style={{flex: 1, fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>PT: HOÀNG PHÚC</Text>
               </View>
             </View>
           </View>
@@ -159,8 +159,8 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>GYM QUẬN 8</Text>
-              <Text style={{fontWeight: '500', color: '#333333'}}>24/07/2023 - 9:28</Text>
+              <Text style={{flex: 1, fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>GYM QUẬN 8</Text>
+              <Text style={{fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>24/07/2023 - 9:28</Text>
             </View>
 
             <View
@@ -177,7 +177,7 @@ function TrainingHistory({navigation}: any): JSX.Element {
                 <Image 
                 style={{width: 20, height: 20, marginRight: 4}}
                 source={require('../images/username.png')}/>
-                <Text style={{flex: 1, fontWeight: 'bold', color: '#333333'}}>PT: MINH THIÊN</Text>
+                <Text style={{flex: 1,fontFamily: 'SVN-Gilroy Bold', color: '#333333'}}>PT: MINH THIÊN</Text>
               </View>
             </View>
           </View>

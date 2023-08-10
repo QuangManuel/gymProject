@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {Dimensions, KeyboardAvoidingView} from 'react-native';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -56,7 +56,7 @@ function Payment({navigation}: any): JSX.Element {
       const timer = setTimeout(() => {
         setModalVisible(false);
         setIsPaymentSuccessful(false);
-        navigation.navigate('MainHome'); 
+        navigation.navigate('MainHome');
       }, 3000);
 
       return () => clearTimeout(timer);
@@ -75,8 +75,8 @@ function Payment({navigation}: any): JSX.Element {
               <Text
                 style={{
                   color: 'black',
-                  fontSize: 24,
-                  fontWeight: '800',
+                  fontSize: 28,
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   marginBottom: 0,
                 }}>
@@ -204,8 +204,7 @@ function Payment({navigation}: any): JSX.Element {
                         onPress={() => {
                           setModalVisible(false);
                           setIsPaymentSuccessful(false);
-                        }}>
-                      </Pressable>
+                        }}></Pressable>
                     </>
                   ) : (
                     <ActivityIndicator size="large" color="#0000ff" />
@@ -226,17 +225,29 @@ function Payment({navigation}: any): JSX.Element {
                 borderRadius: 100,
                 height: 50,
                 justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
               }}>
               <Text
                 style={{
                   fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
-                Đăng ký thôi
+                THANH TOÁN
               </Text>
+
+              <Image
+                style={{
+                  marginLeft: 5,
+                  marginTop: 15,
+                  width: 20,
+                  height: '42%',
+                  alignSelf: 'flex-start',
+                }}
+                source={require('../images/RightArrow.png')}
+              />
             </TouchableOpacity>
           </View>
         </SafeAreaView>
@@ -338,13 +349,13 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     color: '#E84479',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'UTM Bebas',
   },
   unselectedText: {
     color: '#ffffff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'UTM Bebas',
   },
 
   textStyle: {

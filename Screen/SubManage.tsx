@@ -47,7 +47,7 @@ function Navbar({navigation}: any): JSX.Element {
             flexDirection: 'column',
             paddingHorizontal: 13,
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
+          <Text style={{fontFamily: 'UTM Bebas', fontSize: 25, color: 'black'}}>
             QUẢN LÝ GÓI TẬP
           </Text>
         </View>
@@ -72,22 +72,22 @@ function Navbar({navigation}: any): JSX.Element {
                 }}
                 source={require('../images/standard_icon.png')}></Image>
               <Text
-                style={{color: '#E84479', fontWeight: 'bold', fontSize: 20}}>
+                style={{color: '#E84479', fontFamily: 'UTM Bebas', fontSize: 25}}>
                 GÓI TẬP HIỆN TẠI{'\n'}
-                <Text style={{fontSize: 13, color: 'white'}}>1 THÁNG</Text>
+                <Text style={{fontSize: 20, color: 'white'}}>1 THÁNG</Text>
               </Text>
             </View>
           </ImageBackground>
         </View>
 
         <View style={{marginTop: 20, height: 35, flexDirection: 'row'}}>
-          <Text style={{fontWeight: '600', fontSize: 15 , width: 100 ,marginRight: 10}}>Ngày đăng ký:</Text>
-          <Text style={{fontWeight: '600', fontSize: 15}}>xx/xx/xx</Text>
+          <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15 , width: 110 ,marginRight: 10}}>Ngày đăng ký:</Text>
+          <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15}}>10/08/2023</Text>
         </View>
 
         <View style={{marginTop: 10, height: 35, flexDirection: 'row'}}>
-          <Text style={{fontWeight: '600', fontSize: 15, width: 100 ,marginRight: 10}}>Ngày hết hạn:</Text>
-          <Text style={{fontWeight: '600', fontSize: 15}}>xx/xx/xx</Text>
+          <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15, width: 110 ,marginRight: 10}}>Ngày hết hạn:</Text>
+          <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15}}>10/09/2023</Text>
         </View>
       </View>
     </SafeAreaView>

@@ -68,7 +68,7 @@ function Main({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               marginBottom: 0,
             }}>
@@ -78,7 +78,7 @@ function Main({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 17,
-              fontWeight: '400',
+              fontFamily: 'SVN-Gilroy Medium',
               textAlign: 'center',
               marginBottom: 30,
             }}>
@@ -111,12 +111,18 @@ function Main({navigation}: any): JSX.Element {
             textAlign: 'right',
             marginRight: 7,
           }}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              Alert.alert("Mã OTP đã được gửi lại")
+            }}>
+            
             <Text
+              
               style={{
                 fontWeight: '500',
                 fontSize: 14,
                 color: '#676767',
+                fontFamily: 'SVN-Gilroy Medium'
               }}>
               Không nhận được OTP?&nbsp;
               <Text style={{color: '#E84479'}}>Gửi lại mã</Text>
@@ -129,9 +135,9 @@ function Main({navigation}: any): JSX.Element {
         <TouchableOpacity
           onPress={() => {
 
-            navigation.navigate('MainHomeGuest');
+            navigation.navigate('GuestPhoneVerify');
             if (otp.trim() !== '' && /^[0-9]{6}$/.test(otp)) {
-              navigation.navigate('MainHome');
+              navigation.navigate('MainHomeGuest');
             } else {
               Alert.alert('Warning!','Vui lòng nhập mã OTP')
             }
@@ -143,17 +149,29 @@ function Main({navigation}: any): JSX.Element {
             borderRadius: 100,
             height: 50,
             justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
           }}>
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Xác minh
           </Text>
+
+          <Image
+            style={{
+              marginLeft: 5,
+              marginTop: 15,
+              width: 20,
+              height: '42%',
+              alignSelf: 'flex-start',
+            }}
+            source={require('../images/RightArrow.png')}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

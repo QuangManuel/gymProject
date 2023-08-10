@@ -47,7 +47,6 @@ function navigate(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={Home} />
 
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
 

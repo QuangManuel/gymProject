@@ -77,10 +77,10 @@ function Navbar({navigation}: any): JSX.Element {
             flexDirection: 'column',
             paddingHorizontal: 13,
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
+          <Text style={{fontSize: 16, color: 'black', fontFamily: 'SVN-Gilroy Bold'}}>
             {username}
           </Text>
-          <Text style={{color: '#535763'}}>{email}</Text>
+          <Text style={{color: '#535763', fontFamily: 'SVN-Gilroy Medium'}}>{email}</Text>
         </View>
 
         <TouchableOpacity
@@ -116,7 +116,7 @@ function Navbar({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Cập nhật thông tin cá nhân
           </Text>
         </TouchableOpacity>
@@ -137,7 +137,7 @@ function Navbar({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Lịch sử tập
           </Text>
         </TouchableOpacity>
@@ -158,7 +158,7 @@ function Navbar({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Quản lý gói tập
           </Text>
         </TouchableOpacity>
@@ -179,7 +179,7 @@ function Navbar({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Khuyến mãi
           </Text>
         </TouchableOpacity>
@@ -199,7 +199,7 @@ function Navbar({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Hỗ trợ
           </Text>
         </TouchableOpacity>
@@ -214,7 +214,7 @@ function Navbar({navigation}: any): JSX.Element {
         <Image 
         style={{width: 25, height: 25, justifyContent: 'center', marginRight: 5,}}
         source={require('../images/logout.png')}/>
-        <Text style={{fontWeight: 'bold', fontSize: 15, color: '#E84479'}}>Đăng xuất</Text>
+        <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#E84479'}}>Đăng xuất</Text>
         </TouchableOpacity>
         
       </View>

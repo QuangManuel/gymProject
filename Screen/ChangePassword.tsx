@@ -184,11 +184,10 @@ function ChangePassword({navigation}: any): JSX.Element {
               }}>
               <Text
                 style={{
-                  fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontSize: 25,
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
                 CẬP NHẬT
               </Text>

@@ -59,7 +59,7 @@ function PlanSubcription({navigation}: any): JSX.Element {
       background: require('../images/normalplan.png'),
     },
     {
-      name: '1 Năm luôn ní',
+      name: '1 Năm',
       price: '2.900.000VNĐ (TIẾT KIỆM 20%)',
       icon: require('../images/premium_icon.png'),
       background: require('../images/normalplan.png'),
@@ -88,7 +88,7 @@ function PlanSubcription({navigation}: any): JSX.Element {
             style={{
               width: 150,
               height: 150,
-              marginBottom: 10,
+              marginBottom: 0,
             }}
             source={require('../images/gymaster_logo_pink.png')}
           />
@@ -96,15 +96,15 @@ function PlanSubcription({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               marginBottom: 0,
             }}>
-            Chọn gói tập đi ní
+            Chọn gói tập
           </Text>
         </View>
 
-        <View style={styles.planSelection}>
+        <View style={{...styles.planSelection}}>
           {plans.map(plan => (
             <TouchableOpacity
               key={plan.name}
@@ -169,17 +169,28 @@ function PlanSubcription({navigation}: any): JSX.Element {
             borderRadius: 100,
             height: 50,
             justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
           }}>
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Thanh Toán
           </Text>
+          <Image
+            style={{
+              marginLeft: 5,
+              marginTop: 15,
+              width: 20,
+              height: '42%',
+              alignSelf: 'flex-start',
+            }}
+            source={require('../images/RightArrow.png')}
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -278,13 +289,13 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     color: '#E84479',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'UTM Bebas'
   },
   unselectedText: {
     color: '#ffffff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontFamily: 'UTM Bebas'
   },
 });
 

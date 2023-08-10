@@ -56,7 +56,7 @@ function CCCD({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
             }}>
             Xác minh danh tính
@@ -65,7 +65,7 @@ function CCCD({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 17,
-              fontWeight: '400',
+              fontFamily: 'SVN-Gilroy Medium',
               textAlign: 'center',
               marginBottom: 30,
             }}>
@@ -94,12 +94,11 @@ function CCCD({navigation}: any): JSX.Element {
               <Text
                 style={{
                   fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
-                Chụp
+                Chụp ảnh
               </Text>
             </TouchableOpacity>
           </RNCamera>
@@ -125,10 +124,9 @@ function CCCD({navigation}: any): JSX.Element {
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Tiếp theo
           </Text>

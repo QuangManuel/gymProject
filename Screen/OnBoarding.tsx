@@ -1,6 +1,7 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {Dimensions} from 'react-native';
+import { useFont } from 'expo-font';
 
 import {
   SafeAreaView,
@@ -43,34 +44,32 @@ function OnBoarding({navigation}: any): JSX.Element {
           style={styles.imageBackground}>
           <LinearGradient
             style={{
-              height: height / 2,
+              height: height / 2.2,
               paddingHorizontal: 30,
             }}
             colors={[`rgba(0,0,0,0.1)`, '#000']}>
             <Text
               style={{
                 fontSize: 32,
-                fontFamily: 'UTM-Bebas',
+                fontFamily: 'UTM Bebas',
                 textAlign: 'center',
                 color: 'white',
-                fontWeight: 'bold',
               }}>
               GYMASTER{'\n'}
-              <Text style={{fontSize: 27, fontFamily: 'regular'}}>
+              <Text style={{fontSize: 27, fontFamily: 'UTM Bebas'}}>
                 Thay đổi để cuộc sống tốt hơn!
               </Text>
             </Text>
 
             <Text
               style={{
-                fontSize: 20,
-                fontFamily: 'UTM-Bebas',
+                fontSize: 17,
+                fontFamily: 'SVN-Gilroy Regular',
                 textAlign: 'center',
                 color: 'white',
-                marginTop: 30,
+                marginTop: 10,
               }}>
-              đừng lãng phí thời gian và bắt đầu cuộc sống mới cùng GYMASTER
-              ngay hôm nay!
+              Đừng lãng phí thời gian và bắt đầu cuộc sống mới cùng GYMASTER ngay hôm nay!
             </Text>
 
             <TouchableOpacity
@@ -79,7 +78,7 @@ function OnBoarding({navigation}: any): JSX.Element {
               }}
               style={{
                 backgroundColor: '#E84479',
-                marginTop: 20,
+                marginTop: 50,
                 paddingHorizontal: 30,
                 borderRadius: 100,
                 height: 50,
@@ -87,13 +86,12 @@ function OnBoarding({navigation}: any): JSX.Element {
               }}>
               <Text
                 style={{
-                  fontSize: 20,
-                  fontFamily: 'UTM-Bebas',
+                  fontSize: 25,
+                  fontFamily: 'UTM Bebas',
                   textAlign: 'center',
                   color: 'white',
-                  fontWeight: 'bold',
                 }}>
-                GET STARTED
+                KHÁM PHÁ NGAY
               </Text>
             </TouchableOpacity>
 
@@ -102,10 +100,9 @@ function OnBoarding({navigation}: any): JSX.Element {
                 marginTop: 20,
                 justifyContent: 'center',
                 fontSize: 18,
-                fontFamily: 'UTM-Bebas',
+                fontFamily: 'UTM Bebas',
                 textAlign: 'center',
                 color: 'white',
-                fontWeight: 'bold',
               }}>
               <Text>Đã có tài khoản?&nbsp;</Text>
               <Text

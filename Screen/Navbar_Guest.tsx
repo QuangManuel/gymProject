@@ -55,7 +55,7 @@ function Navbar_Guest({navigation}: any): JSX.Element {
             flexDirection: 'column',
             paddingHorizontal: 13,
           }}>
-          <Text style={{fontWeight: 'bold', fontSize: 16, color: 'black'}}>
+          <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 16, color: 'black'}}>
             0919447744
           </Text>
         </View>
@@ -78,10 +78,7 @@ function Navbar_Guest({navigation}: any): JSX.Element {
 
       <View style={styles.body}>
 
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('PersonalInfo');
-          }}
+        <View
           style={{
             height: 50,
             flexDirection: 'row',
@@ -94,13 +91,13 @@ function Navbar_Guest({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Khuyến mãi
           </Text>
-        </TouchableOpacity>
+        </View>
 
         <TouchableOpacity
-          onPress={()=>{Linking.openURL('tel:8777111223');
+          onPress={()=>{Linking.openURL('tel:+84 987651234');
           }}
           style={{
             height: 50,
@@ -114,7 +111,7 @@ function Navbar_Guest({navigation}: any): JSX.Element {
             />
           </View>
 
-          <Text style={{justifyContent: 'center', flex: 9, fontWeight: 'bold', fontSize: 15, color: '#535763'}}>
+          <Text style={{justifyContent: 'center', flex: 9, fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#535763'}}>
             Hỗ trợ
           </Text>
         </TouchableOpacity>
@@ -129,7 +126,7 @@ function Navbar_Guest({navigation}: any): JSX.Element {
         <Image 
         style={{width: 25, height: 25, justifyContent: 'center', marginRight: 5,}}
         source={require('../images/logout.png')}/>
-        <Text style={{fontWeight: 'bold', fontSize: 15, color: '#E84479'}}>Đăng xuất</Text>
+        <Text style={{fontFamily: 'SVN-Gilroy Bold', fontSize: 15, color: '#E84479'}}>Đăng xuất</Text>
         </TouchableOpacity>
         
       </View>

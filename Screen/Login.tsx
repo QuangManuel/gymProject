@@ -115,9 +115,9 @@ function Login({navigation}: any): JSX.Element {
             style={{
               color: 'black',
               fontSize: 33,
-              fontWeight: '800',
               textAlign: 'center',
               marginBottom: 30,
+              fontFamily: 'UTM Bebas',
             }}>
             Đăng nhập thành viên
           </Text>
@@ -178,6 +178,7 @@ function Login({navigation}: any): JSX.Element {
                 fontWeight: '400',
                 fontSize: 14,
                 color: '#E84479',
+                fontFamily: 'SVN-Gilroy Bold'
               }}>
               Quên mật khẩu?
             </Text>
@@ -201,10 +202,9 @@ function Login({navigation}: any): JSX.Element {
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Đăng nhập
           </Text>
@@ -225,10 +225,9 @@ function Login({navigation}: any): JSX.Element {
           <Text
             style={{
               fontSize: 20,
-              fontFamily: 'UTM-Bebas',
+              fontFamily: 'UTM Bebas',
               textAlign: 'center',
               color: 'white',
-              fontWeight: 'bold',
             }}>
             Đăng nhập khách
           </Text>

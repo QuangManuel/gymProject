@@ -48,16 +48,6 @@ function MainHomeGuest({navigation}: any): JSX.Element {
           </View>
 
           <View style={styles.profileLogo}>
-            <TouchableOpacity
-              style={{marginRight: 10, justifyContent: 'center'}}>
-              <Image
-                style={{
-                  width: 30,
-                  height: 30,
-                }}
-                source={require('../images/shopping-cart.png')}
-              />
-            </TouchableOpacity>
 
             <TouchableOpacity
               onPress={() => {
@@ -104,10 +94,11 @@ function MainHomeGuest({navigation}: any): JSX.Element {
               <TextInput
                 style={{
                   width: '100%',
-                  fontWeight: '600',
+                  fontFamily: 'UTM Bebas',
+                  fontSize: 17,
                 }}
                 onChangeText={onChangeText}
-                placeholder="TÌM KIẾM ĐỊA ĐIỂM GẦN NHẤT NÈ NÍ"
+                placeholder="TÌM KIẾM ĐỊA ĐIỂM GẦN NHẤT?"
                 value={text}
                 keyboardType="name-phone-pad"
               />
@@ -134,7 +125,7 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                     angleCenter={{x: 0.2, y: 0.5}}
                     colors={[`rgba(0,0,0,0.0)`, '#000']}>
                     <Text
-                      style={{fontSize: 20, color: '#fff', fontWeight: 'bold'}}>
+                      style={{fontSize: 25, color: '#fff', fontFamily: 'UTM Bebas'}}>
                       PHÒNG TẬP GẦN ĐÂY
                     </Text>
 
@@ -146,19 +137,18 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                         backgroundColor: '#E84479',
                         marginTop: 10,
                         paddingHorizontal: 10,
-                        borderRadius: 15,
-                        height: 50,
-                        width: 130,
+                        borderRadius: 10,
+                        height: 40,
+                        width: 100,
                         justifyContent: 'center',
                         marginBottom: 20,
                       }}>
                       <Text
                         style={{
                           fontSize: 20,
-                          fontFamily: 'UTM-Bebas',
+                          fontFamily: 'UTM Bebas',
                           textAlign: 'center',
                           color: 'white',
-                          fontWeight: 'bold',
                         }}>
                         KHÁM PHÁ
                       </Text>
@@ -182,8 +172,8 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                     angleCenter={{x: 0.2, y: 0.5}}
                     colors={[`rgba(0,0,0,0.0)`, '#000']}>
                     <Text
-                      style={{fontSize: 20, color: '#fff', fontWeight: 'bold'}}>
-                      A LÔ Á LÔ
+                      style={{fontSize: 25, color: '#fff', fontFamily: 'UTM Bebas'}}>
+                      THỰC PHẨM CHỨC NĂNG
                     </Text>
 
                     <TouchableOpacity
@@ -194,21 +184,20 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                         backgroundColor: '#E84479',
                         marginTop: 10,
                         paddingHorizontal: 10,
-                        borderRadius: 15,
-                        height: 50,
-                        width: 130,
+                        borderRadius: 10,
+                        height: 40,
+                        width: 100,
                         justifyContent: 'center',
                         marginBottom: 20,
                       }}>
                       <Text
                         style={{
                           fontSize: 20,
-                          fontFamily: 'UTM-Bebas',
+                          fontFamily: 'UTM Bebas',
                           textAlign: 'center',
                           color: 'white',
-                          fontWeight: 'bold',
                         }}>
-                        CHÂN PHẢI T ĐÁ
+                        KHÁM PHÁ
                       </Text>
                     </TouchableOpacity>
                   </LinearGradient>
@@ -217,7 +206,7 @@ function MainHomeGuest({navigation}: any): JSX.Element {
             </View>
 
             <View style={{marginTop: 20}}>
-              <Text style={{fontSize: 18, fontWeight: 'bold'}}>
+              <Text style={{fontSize: 25, fontFamily: 'UTM Bebas'}}>
                 DỊCH VỤ NỔI BẬT
               </Text>
             </View>
@@ -241,19 +230,19 @@ function MainHomeGuest({navigation}: any): JSX.Element {
 
                   <View style={[styles.serviceContent, shadow]}>
                     <View style={{flex: 1, justifyContent: 'center'}}>
-                      <Text
+                    <Text
                         style={{
-                          fontWeight: '600',
-                          fontSize: 13,
+                          fontSize: 16,
                           marginBottom: -10,
+                          fontFamily: 'UTM Bebas'
                         }}>
                         FITNESS
                       </Text>
                       <Text
                         style={{
                           marginVertical: 10,
-                          fontWeight: 'bold',
-                          fontSize: 18,
+                          fontFamily: 'UTM Bebas',
+                          fontSize: 25,
                           color: 'black',
                         }}>
                         THUÊ TRAINER
@@ -267,16 +256,15 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                           paddingHorizontal: 10,
                           borderRadius: 15,
                           height: 40,
-                          width: 130,
+                          width: 100,
                           justifyContent: 'center',
                         }}>
                         <Text
                           style={{
-                            fontSize: 15,
-                            fontFamily: 'UTM-Bebas',
+                            fontSize: 17,
+                            fontFamily: 'UTM Bebas',
                             textAlign: 'center',
                             color: 'white',
-                            fontWeight: 'bold',
                           }}>
                           TÌM HIỂU NGAY
                         </Text>
@@ -300,19 +288,19 @@ function MainHomeGuest({navigation}: any): JSX.Element {
 
                   <View style={[styles.serviceContent, shadow]}>
                     <View style={{flex: 1, justifyContent: 'center'}}>
-                      <Text
+                    <Text
                         style={{
-                          fontWeight: '600',
-                          fontSize: 13,
+                          fontSize: 16,
                           marginBottom: -10,
+                          fontFamily: 'UTM Bebas'
                         }}>
                         HỖ TRỢ
                       </Text>
                       <Text
                         style={{
                           marginVertical: 10,
-                          fontWeight: 'bold',
-                          fontSize: 18,
+                          fontFamily: 'UTM Bebas',
+                          fontSize: 25,
                           color: 'black',
                         }}>
                         THỰC PHẨM CHỨC NĂNG
@@ -326,18 +314,17 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                           paddingHorizontal: 10,
                           borderRadius: 15,
                           height: 40,
-                          width: 130,
+                          width: 100,
                           justifyContent: 'center',
                         }}>
                         <Text
                           style={{
-                            fontSize: 15,
-                            fontFamily: 'UTM-Bebas',
+                            fontSize: 17,
+                            fontFamily: 'UTM Bebas',
                             textAlign: 'center',
                             color: 'white',
-                            fontWeight: 'bold',
                           }}>
-                          TÌM HIỂU NGAY
+                          tìm hiểu ngay
                         </Text>
                       </TouchableOpacity>
                     </View>
@@ -364,9 +351,9 @@ function MainHomeGuest({navigation}: any): JSX.Element {
                   }}
                   source={require('../images/standard_icon.png')}></Image>
                 <Text
-                  style={{color: '#E84479', fontWeight: 'bold', fontSize: 20}}>
+                  style={{color: '#E84479', fontSize: 25, fontFamily:'UTM Bebas'}}>
                   GIẢM GIÁ ĐẾN 20% {'\n'}
-                  <Text style={{fontSize: 13, color: 'white'}}>
+                  <Text style={{fontSize: 17, color: 'white'}}>
                     TOÀN BỘ CHƯƠNG TRÌNH
                   </Text>
                 </Text>
